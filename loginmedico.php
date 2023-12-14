@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +19,13 @@
         }
         form {
     position: relative;
-    width: 400px; /* ou o valor desejado */
+    width: 400px; 
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     backdrop-filter: blur(15px);
     display: flex;
-    flex-direction: column; /* Alteração para empilhar os itens verticalmente */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     margin: 300px auto;
@@ -34,23 +33,18 @@
     padding: 20px;
     border-radius: 8px;
 }
-
-
-
-        h2 {
+           h2 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 36px;
             color: #fff;
         }
-
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
             color: #fff;
         }
-
         input[type="text"],
         input[type="password"] {
             width: 100%;
@@ -62,7 +56,6 @@
             text-decoration: none;
            
         }
-
         input[type="submit"] {
             display: inline-block;
             padding: 10px 20px;
@@ -75,7 +68,6 @@
             text-decoration: none;
             margin: 10px;
         }
-
         .button {
             width: auto;
             padding: 10px 18px;
@@ -90,9 +82,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <form method="post" action="loginmedico.php">
         <h2>Login</h2>
         <label for="email">Email:</label>
@@ -112,15 +102,12 @@
         $username = 'phpmyadmin';
         $password = 'aluno';
         $database = 'Medicos';
-
         // Conectar ao banco de dados
         $conn = new mysqli($host, $username, $password, $database);
-
         // Verificar a conexão
         if ($conn->connect_error) {
             die("Erro na conexão com o banco de dados: " . $conn->connect_error);
         }
-
         // Receber os dados do formulário
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -140,12 +127,9 @@
             $sucesso = "Dados cadastrados com sucesso!";
             header("Location: painel.php");
         }
-
         // Fechar a conexão com o banco de dados
         $conn->close();
     }
     ?>
-
 </body>
-
 </html>
