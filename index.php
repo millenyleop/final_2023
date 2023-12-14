@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,38 +18,33 @@
             height: 100vh;
         }
         form {
-    position: relative;
-    width: 400px; /* ou o valor desejado */
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column; /* Alteração para empilhar os itens verticalmente */
-    justify-content: center;
-    align-items: center;
-    margin: 300px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
+        position: relative;
+        width: 400px; 
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        margin: 300px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 8px;
 }
-
-
-
         h2 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 36px;
             color: #fff;
         }
-
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
             color: #fff;
         }
-
         input[type="text"],
         input[type="password"] {
             width: 100%;
@@ -62,7 +56,6 @@
             text-decoration: none;
            
         }
-
         input[type="submit"] {
             display: inline-block;
             padding: 10px 20px;
@@ -75,7 +68,6 @@
             text-decoration: none;
             margin: 10px;
         }
-
         .button {
             width: auto;
             padding: 10px 18px;
@@ -90,9 +82,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <form method="post" action="index.php">
         <h2>Login</h2>
         <label for="email">Email:</label>
@@ -104,7 +94,6 @@
         <input type="submit" value="Login">
         <a href="logout.php" class="button">Sair</a>
     </form>
-
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Configurações do banco de dados
@@ -140,12 +129,9 @@
             $sucesso = "Dados cadastrados com sucesso!";
             header("Location: painel1.php");
         }
-
         // Fechar a conexão com o banco de dados
         $conn->close();
     }
     ?>
-
 </body>
-
 </html>
