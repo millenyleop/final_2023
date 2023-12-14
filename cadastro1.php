@@ -8,18 +8,12 @@
 <style>
 body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-image: url(fundo1.png);
             background-repeat: no-repeat;
             background-size: cover;
-        
         }
-
-       
-
         form {
-            max-width: 400px;
+          max-width: 400px;
             width: 100%;
             padding: 30px;
             background: transparent;
@@ -29,47 +23,25 @@ body {
             position: center; 
             text-align: center;
         }
-
         input {
-
             width: calc(100% - 16px);
-
             padding: 10px;
-
             margin-bottom: 20px;
-
             box-sizing: border-box;
-
             border: 1px solid #ccc;
-
             border-radius: 4px;
-
         }
 
         button {
-
             background-color: #1565c0;
-
             color: #fff;
-
             padding: 10px 15px;
-
             border: none;
-
             border-radius: 4px;
-
             cursor: pointer;
+                 }
 
-            transition: background-color 0.3s;
-
-        }
-
-        button:hover {
-
-            background-color: #003c8f;
-
-        }
-
+        
         p {
 
             margin-top: 10px;
@@ -78,14 +50,11 @@ body {
         }
 
         p.error {
-
-            color: red;
+         color: red;
 
         }
-
         p.success {
-
-            color: green;
+         color: green;
 
         }
         .button {
@@ -108,23 +77,19 @@ body {
 label{
   color: white;
 }
- 
 h1{
   color: white;
 }
-
 a{ 
   color: blue;
 }
-
 </style>
-
 </head>
-
 <?php
+//conectar ao banco de dados 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $obj_mysqli = new mysqli("127.0.0.1", "phpmyadmin", "aluno", "TutoCrudPhp");
-
+//verificar conexão
 if ($obj_mysqli->connect_errno) {
 echo "Ocorreu um erro na conexão com o banco de dados.";
 exit;
@@ -148,14 +113,16 @@ $erro = "Campo senha obrigatório";
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $senha = $_POST["senha"];
-
+//preparando a tabela para inserir os dados 
 $stmt = $obj_mysqli->prepare("INSERT INTO `Cliente` (`Nome`,`Email`,`Senha`) VALUES (?,?,?)");
 $stmt->bind_param('sss', $nome, $email, $senha);
-
+//erro
 if (!$stmt->execute()) {
 $erro = "Erro no SQL: " . $stmt->error;
 } else {
+//sucesso
 $sucesso = "Dados cadastrados com sucesso!";
+//caso sucesso ir para pagina inicial
 header("Location: tela_inicial1.php");
 }
 }
@@ -177,26 +144,19 @@ header("Location: tela_inicial1.php");
     <br>
     <div class="container" >
         <a class="links" id="paracadastro"></a>
-        
         <br>
-        
         <div class="content">      
-          
           <center><div id="cadastro">
             <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST">
- 
-              <h1>Cadastro</h1> 
-              
+              <h1>Cadastro</h1>
               <p> 
                 <label for="nome_cad">Seu nome</label>
                 <input type="text" name="nome" placeholder="Qual seu nome?"><br/>
               </p>
-              
               <p> 
                 <label for="email_cad">Seu e-mail</label>
                 <input type="email" name="email" placeholder="Qual seu e-mail?"><br/> 
-              </p>
-              
+              </p>    
               <p> 
                 <label for="senha_cad">Sua senha</label>
                 <input type="password" name="senha" placeholder="Qual sua senha?"><br/>
@@ -208,7 +168,6 @@ header("Location: tela_inicial1.php");
                 
                 <input type="submit" value="Cadastrar"/> 
               </p>
-              
               <p class="link">  
                 Já tem conta?
                 <a href="logout.php"> Ir para Login </a>
