@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Conectar ao banco de dados (substitua com suas próprias credenciais)
+// Conectar ao banco de dados 
 $conexao = new mysqli("localhost", "phpmyadmin", "aluno", "agendamento");
 
 // Verificar conexão
