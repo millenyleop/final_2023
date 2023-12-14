@@ -21,10 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inserir dados no banco de dados usando prepared statement
     $stmt = $conexao->prepare("INSERT INTO agendamentos (nome, telefone, servicos, data_agendamento, hora_agendamento, dia_semana) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $nome, $telefone, $servicos, $data, $hora, $dia_semana);
-
+    //Caso de certo
     if ($stmt->execute()) {
         $_SESSION['msg'] = "Agendamento realizado com sucesso!";
         header("Location: telapaciente.php");
+        //Caso não de certo
     } else {
         $_SESSION['msg'] = "Erro ao agendar: " . $conexao->error;
     }
